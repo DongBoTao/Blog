@@ -1,0 +1,41 @@
+server:
+  port: 9090
+
+# 模板引擎
+spring:
+  thymeleaf:
+    mode: HTML5
+  ## 数据库配置 - start
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://porterblog.site:3306/blog?useSSL=false&allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&tinyInt1isBit=false
+    username: root
+    password: porter123!@#
+    type: com.alibaba.druid.pool.DruidDataSource
+    # 连接池配置
+    druid:
+      # 初始化连接数大小
+      initial-size: 5
+      # 最小连接数
+      min-idle: 3
+      # 最大连接数
+      max-active: 10
+      # 连接超时时间
+      max-wait: 60000
+      stat-view-servlet:
+        enabled: true
+        login-username: admin
+        login-password: admin
+
+# mapper文件存储位置
+mybatis:
+  mapper-locations: classpath:mapper/**/*.xml
+  type-aliases-package: com.porter.pojo
+
+# 日志级别
+logging:
+  level:
+   root: info
+   com.porter: debug
+  file:
+    name: log/blog.log
