@@ -25,13 +25,14 @@ spring:
         enabled: true
         login-username: admin
         login-password: admin
+  profiles:
+    active: dev
 
 # mapper文件存储位置
 mybatis:
   mapper-locations: classpath:mapper/**/*.xml
   type-aliases-package: com.porter.pojo
   #test
-
 # 日志级别
 logging:
   level:
